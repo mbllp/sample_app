@@ -12,7 +12,12 @@ describe PagesController do
     
     it "should have the right title" do
       get 'home'
-      expect(response.body).to match /MAN'S CHIEF END IS TO GLORIFY GOD AND ENJOY HIM FOREVER./m
+      expect(response.body).to match /Glorify God | Home/m
+    end
+    
+    it "should have a non-blank body" do
+      get 'home'
+      response.body.should_not =~ /<body>\s*<\/body>/
     end
   end
 
