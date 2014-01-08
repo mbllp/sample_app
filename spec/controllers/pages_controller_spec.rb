@@ -4,6 +4,11 @@ describe PagesController do
 
   render_views
   
+  before (:each) do
+    @base_title = "Glorify God"
+  end
+  
+  
   describe "GET 'home'" do
     it "returns http success" do
       get 'home'
@@ -12,7 +17,7 @@ describe PagesController do
     
     it "should have the right title" do
       get 'home'
-      expect(response.body).to match /Glorify God | Home/m
+      expect(response.body).to match /#{@base_title} | Home/m
     end
     
     it "should have a non-blank body" do
